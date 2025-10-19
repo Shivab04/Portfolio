@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   contact: {
     phone: '+91 9000176036',
     email: 'billakantishiva4@gmail.com',
-    linkedin: 'https://www.linkedin.com/feed/',
+    linkedin: 'https://www.linkedin.com/in/shiva-billakanti-b41a9b174/',
     portfolio: 'https://shivab04.github.io/beyondchats/',
     github: 'https://github.com/Shivab04',
   }
