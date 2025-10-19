@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
         }
       },
       publicDir: 'public',
-      base: '/Portfolio/',
+      base: '/',
       build: {
         outDir: 'dist',
         assetsDir: 'assets'
