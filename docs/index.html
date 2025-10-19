@@ -1,359 +1,139 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shiva Billakanti | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
       body {
         font-family: 'Inter', sans-serif;
       }
       
-        /* Custom animations */
-        .fade-in {
+      /* Enhanced fade-in animations */
+      .fade-in-section {
         opacity: 0;
         transform: translateY(20px);
-            animation: fadeIn 1s ease-out forwards;
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        will-change: opacity, transform;
       }
-        
-        @keyframes fadeIn {
-            to {
+      .fade-in-section.is-visible {
         opacity: 1;
         transform: translateY(0);
-            }
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideInLeft 0.8s ease-out 0.2s forwards;
-        }
-        
-        @keyframes slideInLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .slide-in-right {
-        opacity: 0;
-            transform: translateX(50px);
-            animation: slideInRight 0.8s ease-out 0.4s forwards;
       }
 
-        @keyframes slideInRight {
+      /* Hero entrance animation */
+      .hero-entrance {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        animation: heroFadeIn 1.2s ease-out forwards;
+      }
+
+      @keyframes heroFadeIn {
         to {
           opacity: 1;
-                transform: translateX(0);
-            }
+          transform: translateY(0) scale(1);
         }
-        
-        .hero-char {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: charDrop 0.6s ease-out forwards;
-        }
-        
-        @keyframes charDrop {
-            to {
-                opacity: 1;
+      }
+
+      /* Button hover animations */
+      .btn-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         transform: translateY(0);
       }
-        }
-        
-        /* Button hover effects */
-        .btn-hover {
-            transition: all 0.3s ease;
-        }
-        
       .btn-hover:hover {
         transform: translateY(-2px);
         box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
       }
 
-        /* Social icons */
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
+      /* Card hover animations */
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+      }
+
+      /* Icon bounce animation */
+      .icon-bounce {
+        transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      .icon-bounce:hover {
         transform: scale(1.2) rotate(5deg);
       }
 
-        /* Navigation */
-        .nav-item {
-            position: relative;
-        }
-        
-        .nav-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 50%;
-            width: 8px;
-            height: 1px;
-            background: #6b7280;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-item:hover::before {
-            width: 64px;
-            background: #fff;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-item::before {
-                left: -1rem;
-                width: 4px;
-            }
+      /* Text typing animation */
+      .typing-animation {
+        overflow: hidden;
+        border-right: 2px solid white;
+        white-space: nowrap;
+        animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
       }
-    </style>
+
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: white }
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+        
+        .hero-entrance,
+        .fade-in-section {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* Gradient text animation */
+      .gradient-text {
+        background: linear-gradient(45deg, #ffffff, #888888, #ffffff);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease-in-out infinite;
+      }
+
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+    </style>
+  <script type="module" crossorigin src="/Portfolio/assets/index-DX6mawZK.js"></script>
+  <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-BzhYJRp0.css">
 </head>
-<body class="bg-black text-gray-300 leading-relaxed antialiased">
-    <div class="min-h-screen max-w-screen-xl mx-auto px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <div class="lg:flex lg:justify-between lg:gap-4">
-            <!-- Left Side - Hero & Navigation -->
-            <div class="lg:w-1/2 lg:py-24">
-                <div class="hero fade-in">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-100 mb-4">
-                        <span class="hero-char" style="animation-delay: 0.1s">S</span>
-                        <span class="hero-char" style="animation-delay: 0.15s">h</span>
-                        <span class="hero-char" style="animation-delay: 0.2s">i</span>
-                        <span class="hero-char" style="animation-delay: 0.25s">v</span>
-                        <span class="hero-char" style="animation-delay: 0.3s">a</span>
-                        <span class="hero-char" style="animation-delay: 0.35s"> </span>
-                        <span class="hero-char" style="animation-delay: 0.4s">B</span>
-                        <span class="hero-char" style="animation-delay: 0.45s">i</span>
-                        <span class="hero-char" style="animation-delay: 0.5s">l</span>
-                        <span class="hero-char" style="animation-delay: 0.55s">l</span>
-                        <span class="hero-char" style="animation-delay: 0.6s">a</span>
-                        <span class="hero-char" style="animation-delay: 0.65s">k</span>
-                        <span class="hero-char" style="animation-delay: 0.7s">a</span>
-                        <span class="hero-char" style="animation-delay: 0.75s">n</span>
-                        <span class="hero-char" style="animation-delay: 0.8s">t</span>
-                        <span class="hero-char" style="animation-delay: 0.85s">i</span>
-                    </h1>
-                    <h2 class="text-xl md:text-2xl text-white mb-6 slide-in-left">Full Stack Developer</h2>
-                    <p class="text-gray-400 mb-8 max-w-md slide-in-left">
-                        Results-oriented Full Stack Developer skilled in building scalable, production-ready web applications using React.js, Node.js, and Python. Demonstrated success in delivering end-to-end solutions for global clients, improving application performance and user engagement.
-                    </p>
-                </div>
-
-                <!-- Navigation -->
-                <nav class="hidden lg:block mt-16 slide-in-left">
-                    <ul class="space-y-4">
-                        <li class="nav-item">
-                            <a href="#about" class="flex items-center py-3 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">
-                                About
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#experience" class="flex items-center py-3 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">
-                                Experience
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#projects" class="flex items-center py-3 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">
-                                Projects
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#skills" class="flex items-center py-3 text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">
-                                Skills
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- Resume Button -->
-                <div class="mt-8 slide-in-left">
-                    <a href="/Shiva_Billakanti_Resume.pdf" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-black shadow-sm btn-hover">
-                        View Full Résumé
-                    </a>
-                </div>
-
-                <!-- Social Icons -->
-                <ul class="ml-1 mt-8 flex items-center space-x-5 slide-in-left">
-                    <li class="social-icon">
-                        <a href="https://www.linkedin.com/in/shiva-billakanti-b41a9b174/" target="_blank" rel="noreferrer noopener" class="block hover:text-white transition-colors">
-                            <span class="sr-only">LinkedIn</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-icon">
-                        <a href="https://github.com/Shivab04" target="_blank" rel="noreferrer noopener" class="block hover:text-white transition-colors">
-                            <span class="sr-only">GitHub</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-icon">
-                        <a href="mailto:billakantishiva4@gmail.com" class="block hover:text-white transition-colors">
-                            <span class="sr-only">Email</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457l12 9 12-9z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-icon">
-                        <a href="tel:+919000176036" class="block hover:text-white transition-colors">
-                            <span class="sr-only">Phone</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Right Side - Content -->
-            <div class="lg:w-1/2 lg:py-24 pt-24 lg:pt-24 slide-in-right">
-                <main>
-                    <!-- About Section -->
-                    <section id="about" class="mb-16">
-                        <h2 class="text-2xl font-bold text-white mb-6">About</h2>
-                        <div class="space-y-4 text-gray-400">
-                            <p>Results-oriented Full Stack Developer skilled in building scalable, production-ready web applications using React.js, Node.js, and Python. Demonstrated success in delivering end-to-end solutions for global clients, improving application performance and user engagement.</p>
-                            <p>Adept at collaborating in agile environments and contributing to innovative AI-driven products that enhance business value and customer experience.</p>
-                        </div>
-                    </section>
-
-                    <!-- Experience Section -->
-                    <section id="experience" class="mb-16">
-                        <h2 class="text-2xl font-bold text-white mb-6">Experience</h2>
-                        <div class="space-y-6">
-                            <div class="border-l-2 border-gray-700 pl-6">
-                                <h3 class="text-lg font-semibold text-white">Data Associate Engineer</h3>
-                                <p class="text-gray-400"><a href="https://www.amazon.com/" target="_blank" class="text-blue-400 hover:text-blue-300">Amazon</a> • Jul 2024 – Oct 2024</p>
-                                <p class="text-gray-400 mt-2">Hyderabad, India</p>
-                                <ul class="text-gray-400 mt-3 space-y-1 text-sm">
-                                    <li>• Processed large multimodal datasets (text, image, audio, video) to enhance AI model accuracy.</li>
-                                    <li>• Delivered high-quality labeled data adhering to stringent KPIs, improving data pipeline efficiency.</li>
-                                    <li>• Conducted root cause analysis and quality audits to reduce error rates by identifying key error patterns.</li>
-                                    <li>• Proposed process and tooling improvements that streamlined annotation workflows.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Projects Section -->
-                    <section id="projects" class="mb-16">
-                        <h2 class="text-2xl font-bold text-white mb-6">Projects</h2>
-                        <div class="grid gap-6">
-                            <div class="bg-gray-900 p-6 rounded-lg">
-                                <h3 class="text-lg font-semibold text-white mb-2"><a href="https://shivab04.github.io/beyondchats/" target="_blank" class="text-blue-400 hover:text-blue-300">Beyond</a></h3>
-                                <p class="text-gray-400 mb-2">Oct 2024 – Present</p>
-                                <p class="text-gray-400 mb-4">Designed and developed a conversational AI web interface integrating LLMs for real-time Q&A. Implemented dynamic chat UI using React.js, API integration for backend communication, and user session management.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">React.js</span>
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">LLM Integration</span>
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">API Development</span>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gray-900 p-6 rounded-lg">
-                                <h3 class="text-lg font-semibold text-white mb-2"><a href="https://onelegacyitf.com/" target="_blank" class="text-blue-400 hover:text-blue-300">One Legacy (Australia)</a></h3>
-                                <p class="text-gray-400 mb-2">Jan 2024 – Apr 2024</p>
-                                <p class="text-gray-400 mb-4">Built a responsive and SEO-optimized landing page using React.js. Integrated payment gateway, certificate generation, and user tracking modules using Node.js and Python.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">React.js</span>
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">Node.js</span>
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">Python</span>
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">Payment Gateway</span>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-gray-900 p-6 rounded-lg">
-                                <h3 class="text-lg font-semibold text-white mb-2"><a href="https://www.manpowerplacing.com/" target="_blank" class="text-blue-400 hover:text-blue-300">Manpower Placing (HYD)</a></h3>
-                                <p class="text-gray-400 mb-2">May 2024 – Jun 2024</p>
-                                <p class="text-gray-400 mb-4">Developed resume builder and job scheduling modules using Node.js. Created reusable React components for an interactive front-end experience.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">React.js</span>
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">Node.js</span>
-                                    <span class="px-2 py-1 bg-gray-700 text-gray-300 rounded text-sm">Component Library</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Skills Section -->
-                    <section id="skills" class="mb-16">
-                        <h2 class="text-2xl font-bold text-white mb-6">Skills</h2>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                            <div class="text-center">
-                                <div class="text-white font-semibold mb-2">Programming & Databases</div>
-                                <div class="text-gray-400 text-sm">React.js, Node.js, Python, JavaScript, HTML5, CSS3, Express.js, Flask, RESTful API design, SQL, NoSQL</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-white font-semibold mb-2">Cloud & DevOps</div>
-                                <div class="text-gray-400 text-sm">Azure, Docker, Git, GitHub, CI/CD Workflows, Containerization, Serverless Architecture</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-white font-semibold mb-2">AI / LLMs & Tools</div>
-                                <div class="text-gray-400 text-sm">Prompt Engineering, LLM API Integration, OpenAI GPT-4/5, ChatGPT, Claude, Perplexity.ai</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-white font-semibold mb-2">AI Ops & Automation</div>
-                                <div class="text-gray-400 text-sm">Data Labeling, Model Evaluation, Workflow Automation, Zapier, n8n</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-white font-semibold mb-2">Project Management</div>
-                                <div class="text-gray-400 text-sm">Agile/Scrum, Cross-functional Collaboration</div>
-                            </div>
-                        </div>
-                    </section>
-                </main>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Simple scroll spy for navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-            function updateActiveLink() {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (window.scrollY >= (sectionTop - 200)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('text-white');
-                    link.classList.add('text-gray-500');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.remove('text-gray-500');
-                        link.classList.add('text-white');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', updateActiveLink);
-            updateActiveLink();
-        });
-    </script>
+  <body class="bg-black text-gray-300 leading-relaxed antialiased selection:bg-gray-700 selection:text-white page-loading">
+    <div id="root"></div>
+    
+    <!-- AOS Animation Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </body>
 </html>
