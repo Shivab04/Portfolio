@@ -19,6 +19,11 @@ export default defineConfig(({ mode }) => {
           '@': path.resolve(__dirname, '.'),
         }
       },
-      publicDir: 'public'
+      publicDir: 'public',
+      base: '/Portfolio/',
+      build: {
+        outDir: 'dist',
+        assetsDir: 'assets'
+      }
     };
 });
