@@ -29,6 +29,14 @@ const Header: React.FC<{ activeSection: string }> = ({ activeSection }) => {
     const buttonRef = useRef<HTMLAnchorElement>(null);
     const socialRef = useRef<HTMLUListElement>(null);
 
+    const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        // For GitHub Pages, we need to include the base path
+        const basePath = import.meta.env.PROD ? '/Portfolio' : '';
+        const pdfUrl = `${window.location.origin}${basePath}/Shiva_CV.pdf`;
+        window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+    };
+
     useEffect(() => {
         // Check for reduced motion preference for accessibility
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -102,7 +110,8 @@ const Header: React.FC<{ activeSection: string }> = ({ activeSection }) => {
                 <a
                     ref={buttonRef}
                     className="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-black shadow-sm transition-all duration-300 hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black mt-8 btn-hover resume-button"
-                    href="/Resume.pdf"
+                    href="/Shiva_CV.pdf"
+                    onClick={handleResumeClick}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="View my resume (opens in a new tab)"
