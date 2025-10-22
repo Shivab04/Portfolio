@@ -33,7 +33,7 @@ const Header: React.FC<{ activeSection: string }> = ({ activeSection }) => {
         e.preventDefault();
         // For GitHub Pages, we need to include the base path
         const basePath = import.meta.env.PROD ? '/Portfolio' : '';
-        const pdfUrl = `${window.location.origin}${basePath}/Shiva_CV.pdf`;
+        const pdfUrl = `${window.location.origin}${basePath}/Shiva_Billakanti_Resume.pdf`;
         console.log('Environment:', import.meta.env.PROD ? 'PRODUCTION' : 'DEVELOPMENT');
         console.log('Base Path:', basePath);
         console.log('Full PDF URL:', pdfUrl);
@@ -117,7 +117,7 @@ const Header: React.FC<{ activeSection: string }> = ({ activeSection }) => {
                 <a
                     ref={buttonRef}
                     className="inline-block rounded-md bg-white px-5 py-3 text-sm font-medium text-black shadow-sm transition-all duration-300 hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black mt-8 btn-hover resume-button"
-                    href="/Shiva_CV.pdf"
+                    href="/Shiva_Billakanti_Resume.pdf"
                     onClick={handleResumeClick}
                     target="_blank"
                     rel="noopener noreferrer"
