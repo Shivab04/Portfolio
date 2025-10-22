@@ -34,7 +34,14 @@ const Header: React.FC<{ activeSection: string }> = ({ activeSection }) => {
         // For GitHub Pages, we need to include the base path
         const basePath = import.meta.env.PROD ? '/Portfolio' : '';
         const pdfUrl = `${window.location.origin}${basePath}/Shiva_CV.pdf`;
-        window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+        console.log('Environment:', import.meta.env.PROD ? 'PRODUCTION' : 'DEVELOPMENT');
+        console.log('Base Path:', basePath);
+        console.log('Full PDF URL:', pdfUrl);
+        console.log('Opening PDF in new tab...');
+        const newWindow = window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+        if (!newWindow) {
+            console.error('Failed to open new window - popup might be blocked');
+        }
     };
 
     useEffect(() => {
@@ -120,7 +127,7 @@ const Header: React.FC<{ activeSection: string }> = ({ activeSection }) => {
                         transform: 'scale(0.8)' // Will be animated to 1
                     }}
                 >
-                    View Full Résumé
+                    View Full Resume
                 </a>
 
                 {/* Social Icons - Always visible */}

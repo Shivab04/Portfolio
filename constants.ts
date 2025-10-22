@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
     link: 'https://palmbeach.com.sa/',
     date: 'Nov 2024',
     description: [
-      'Enhanced the resort’s landing page and implemented query submission forms using Node.js.'
+      'Enhanced the resort\'s landing page and implemented query submission forms using Node.js.'
     ]
   },
   {
