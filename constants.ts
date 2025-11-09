@@ -5,7 +5,7 @@ export const PERSONAL_INFO = {
   title: 'Full Stack Developer',
   summary: 'Results-oriented Full Stack Developer skilled in building scalable, production-ready web applications using React.js, Node.js, and Python. Demonstrated success in delivering end-to-end solutions for global clients, improving application performance and user engagement. Adept at collaborating in agile environments and contributing to innovative AI-driven products that enhance business value and customer experience.',
   contact: {
-    phone: '+91 9000176036',
+    phone: '+91 7416455252',
     email: 'billakantishiva4@gmail.com',
     linkedin: 'https://www.linkedin.com/in/shiva-billakanti-b41a9b174/',
     portfolio: 'https://shivab04.github.io/beyondchats/',
@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
     link: 'https://palmbeach.com.sa/',
     date: 'Nov 2024',
     description: [
-      'Enhanced the resort’s landing page and implemented query submission forms using Node.js.'
+      'Enhanced the resort\'s landing page and implemented query submission forms using Node.js.'
     ]
   },
   {
