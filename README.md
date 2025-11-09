@@ -106,3 +106,4 @@ Feel free to fork this project and customize it for your own portfolio!
 ---
 
 **Built with ❤️ by Shiva Billakanti**
+<!-- Rebuild trigger: 11/09/2025 11:46:23 -->
