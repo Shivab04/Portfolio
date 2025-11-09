@@ -31,10 +31,14 @@ const Header: React.FC<{ activeSection: string }> = ({ activeSection }) => {
 
     const handleResumeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
-        // For GitHub Pages, we need to include the base path
-        const basePath = import.meta.env.PROD ? '/Portfolio' : '';
+        // For GitHub Pages, we need to include the base path.
+        // import.meta.env.PROD is not typed by default in TypeScript, so we cast import.meta as any.
+        // In Vite projects, this is safe if you know your environment variables.
+        // If using strict TypeScript setup, consider including a custom typing declaration.
+        const isProd = (import.meta as any).env && (import.meta as any).env.PROD;
+        const basePath = isProd ? '/Portfolio' : '';
         const pdfUrl = `${window.location.origin}${basePath}/Shiva_Billakanti_Resume.pdf`;
-        console.log('Environment:', import.meta.env.PROD ? 'PRODUCTION' : 'DEVELOPMENT');
+        console.log('Environment:', isProd ? 'PRODUCTION' : 'DEVELOPMENT');
         console.log('Base Path:', basePath);
         console.log('Full PDF URL:', pdfUrl);
         console.log('Opening PDF in new tab...');
