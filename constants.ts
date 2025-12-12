@@ -10,6 +10,7 @@ export const PERSONAL_INFO = {
     linkedin: 'https://www.linkedin.com/in/shiva-billakanti-b41a9b174/',
     portfolio: 'https://shivab04.github.io/beyondchats/',
     github: 'https://github.com/Shivab04',
+    _cacheBreaker: Date.now() // Force module reload
   }
 };
 
@@ -33,7 +34,7 @@ export const PROJECTS: Project[] = [
   {
     title: 'Beyond',
     link: 'https://shivab04.github.io/beyondchats/',
-    date: 'Oct 2024 – Present',
+    date: 'Oct 2025 – Dec 2025',
     description: [
       'Designed and developed a conversational AI web interface integrating LLMs for real-time Q&A.',
       'Implemented dynamic chat UI using React.js, API integration for backend communication, and user session management.',
